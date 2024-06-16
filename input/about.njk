@@ -1,0 +1,72 @@
+---
+tags: nav
+page_title: about
+title: We are a creative agency with talented people.
+btn_text: Contact us
+images: [{
+  src: Image 1.png,
+  alt: image of people working together on the same computer
+},{
+  src: Image 2.png,
+  alt: image of people making up a schedule
+},{
+  src: Image 1 1.png,
+  alt: image of people making up a schedule
+},{
+  src: Image 2 1.png,
+  alt: image of people making up a schedule
+}]
+team: [{
+  name: John Doe,
+  function: Founder and CEO,
+  src: Rectangle 2.png,
+  alt: Image of John Doe the founder and CEO
+}, {
+  name: Mac Johnson,
+  function: Prototyper,
+  src: Rectangle 2 1.png,
+  alt: Image of Mac Johnson the Prototyper
+}, {
+  name: Francis McDonald,
+  function: Product designer,
+  src: Rectangle 2 2.png,
+  alt: Image of Francis McDonald the Product designer
+}, {
+  name: Jane Smith,
+  function: Front-end developer,
+  src: Rectangle 2 3.png,
+  alt: Image of Jane Smith the Front-end developer
+}, {
+  name: Mark Cuban,
+  function: Back-end developer,
+  src: Rectangle 2 4.png,
+  alt: Image of Mark Cuban the Back-end developer
+}]
+---
+{% extends "layouts/block.njk" %}
+
+{% block main %}
+  
+  <section class="hero">
+    <div class="hero__inner">
+      {{ comp.hero(title) }}
+      {{ comp.button(btn_text)}}
+    </div>
+    <hr>
+  </section>
+
+  <section class="images">
+    {% for image in images %}
+    <img src="/assets/images/{{ image.src }}" alt="{{ image.alt }}">
+    {% endfor %}
+  </section>
+
+  <section>
+    <h2>Meet the team</h2>
+    <div class="grid">
+      {% for person in team %}
+        {{ comp.grid(person.name, person.function, person.src, person.alt)}}
+      {% endfor %}
+    </div>
+  </section>
+{% endblock main %}
