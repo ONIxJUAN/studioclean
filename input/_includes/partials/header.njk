@@ -1,0 +1,9 @@
+<header>
+  <p>Clean</p>
+  <div>
+    <a href="/">Home</a>
+  {% for nav in collections.nav %}
+    <a href="/{{ nav.data.page_title }}">{{ nav.data.page_title | capitalize}}</a>
+  {% endfor %}
+  </div>
+</header>

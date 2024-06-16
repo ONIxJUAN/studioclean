@@ -1,0 +1,42 @@
+---
+tags: nav
+page_title: contact
+title: Get in touch, we'll get back to you.
+c_info: [{
+  text: "Korenmarkt 12, 9000 Ghent, Belgium",
+  type: 'Address'
+}, {
+  text: "info@clean.be",
+  type: "Email"
+}, {
+  text: "+32 09 45 78 12",
+  type: "Phone"
+}]  
+---
+{% extends "layouts/block.njk" %}
+
+{% block main %}
+
+  <section class="hero">
+    <div class="hero__inner">
+      {{ comp.hero(title, 'center') }}
+    </div>
+    <hr>
+  </section>
+
+  <section class="projects">
+    <div>
+      {% for info in c_info %}
+      {{ comp.projectsDisplay('',info.text,  info.type) }}
+      {% endfor %}
+    </div>
+    <div class="projects__btn">
+      {{ comp.button('Send us an email') }}
+    </div>
+  </section>
+
+  <section class="contact__img">
+    <img src="/assets/images/Rectangle 2 29.png" alt="image of a church">
+  </section>
+
+{% endblock main %}

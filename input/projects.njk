@@ -1,0 +1,25 @@
+---
+tags: nav
+page_title: projects
+title: We make digital experiences.
+---
+{% extends "layouts/block.njk" %}
+
+{% block main %}
+  
+  <section class="hero">
+    <div class="hero__inner">
+      {{ comp.hero(title, 'center') }}
+    </div>
+    <hr>
+  </section>
+  <section class="grid">
+    {% for projectDisplayItem in collections.projectDisplay %}
+      {{ comp.grid(projectDisplayItem.data.title, projectDisplayItem.data.genre, projectDisplayItem.data.image, projectDisplayItem.data.image_desc, 'projects') }}
+    {% endfor %}
+    {% for projectItem in collections.project | sort() %}
+      {{ comp.grid(projectItem.data.title, projectItem.data.genre, projectItem.data.image, projectItem.data.image_desc, 'projects') }}
+    {% endfor %}
+  </section>
+
+{% endblock main %}

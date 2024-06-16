@@ -1,0 +1,31 @@
+{% import "components/general.njk" as comp %}
+{% extends "layouts/default.njk" %}
+
+{% block main %}
+
+  <section class="hero">
+    <div class="hero__inner">
+      {{ comp.hero(title, 'center') }}
+    </div>
+    
+    {% if isProject %}
+      <p class="center">{{ genre }}</p>
+    {% endif %}
+    <a href="/{{ return }}" class="hero__return">
+      <div class="hero__arrow">
+        <img src="/assets/images/chevron-left.svg" alt="arrowhead that points to the left">
+        <div class="hero_arrow-stick"></div>
+      </div>
+      <p>Go back</p>
+    </a>
+    <hr>
+  </section>
+
+  {% if isProject %}
+    <img class="project-img" src="/assets/images/{{ image }}" alt="{{ image_desc }}">
+  {% endif %}
+  <section class="content">
+    {{ content | safe}}
+  </section>
+
+{% endblock main %}

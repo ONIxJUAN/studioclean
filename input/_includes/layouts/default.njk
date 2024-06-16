@@ -1,0 +1,12 @@
+{% extends "./base.njk" %}
+{% block body %}
+  
+  {% include "partials/header.njk" %}
+
+  <main>
+    {% block main %}
+    {% endblock main %}
+  </main>
+  {% include "partials/footer.njk" %}
+
+{% endblock body %}

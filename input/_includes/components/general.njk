@@ -1,0 +1,29 @@
+{% macro hero(title, class) %}
+  <h1 class="{{ class }}">{{ title }}</h1>
+{% endmacro %}
+
+{% macro button(label, link) %}
+  <a class="btn" href="{{ link }}">{{ label }}</a>
+{% endmacro %}
+
+{% macro projectsDisplay(title, date, genre) %}
+  <div class="projects__container">
+    <p>{{ date }}</p>
+    <div>
+      <p>{{ title | capitalize}}</p>
+      <p>{{ genre | capitalize}}</p>
+    </div>
+  </div>
+{% endmacro %}
+
+{% macro grid(title, description, image, image_desc, tag) %}
+  {% if tag %}
+    <a href="/{{ tag }}/{{ title | replace(' ', '-')}}" class="grid__container">
+  {% else %}
+    <a class="grid__container">
+  {% endif %}
+    <img src="/assets/images/{{ image }}" alt="{{ image_desc }}">
+    <h3>{{ title }}</h3>
+    <p>{{ description }}</p>
+  </a>
+{% endmacro %}

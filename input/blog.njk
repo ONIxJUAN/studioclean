@@ -1,0 +1,26 @@
+---
+tags: nav
+page_title: blog
+title: Interested in what we have to say?
+---
+{% extends "layouts/block.njk" %}
+
+{% block main %}
+  
+  <section class="hero">
+    <div class="hero__inner">
+      {{ comp.hero(title, 'center') }}
+    </div>
+    <hr>
+  </section>
+
+  <section class="grid">
+    {% for blogDisplayItem in collections.blogDisplay %}
+      {{ comp.grid(blogDisplayItem.data.title, blogDisplayItem.data.description, blogDisplayItem.data.image, blogDisplayItem.data.image_desc, 'blog') }}
+    {% endfor %}
+    {% for blogItem in collections.blog | sort() %}
+      {{ comp.grid(blogItem.data.title, blogItem.data.description, blogItem.data.image, blogItem.data.image_desc, 'blog') }}
+    {% endfor %}
+  </section>
+
+{% endblock main %}

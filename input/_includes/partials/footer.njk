@@ -1,0 +1,14 @@
+<footer>
+  <p>Clean</p>
+  <div>
+    <a href="/">Home</a>
+  {% for nav in collections.nav %}
+    <a href="/{{ nav.data.page_title }}">{{ nav.data.page_title | capitalize}}</a>
+  {% endfor %}
+  </div>
+  <div>
+  {% for subNav in collections.subNav %}
+    <a href="/{{ subNav.data.page_title }}">{{ subNav.data.page_title | capitalize}}</a>
+  {% endfor %}
+  </div>
+</footer>

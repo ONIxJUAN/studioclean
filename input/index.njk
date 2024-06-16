@@ -1,0 +1,55 @@
+---
+page_title: home pagina
+label: Our project
+title: We're Clean but we get our hands dirty.
+button_text: Our projects
+images: [{
+  src: Image 1 2.png,
+  alt: image of people in a meeting
+},{
+  src: Image 2 2.png,
+  alt: image of people sitting in a room working on computers
+}]
+---
+{% extends "layouts/block.njk" %}
+
+{% block main %}
+  
+  <section class="hero">
+    <div class="hero__inner">
+      {{ comp.hero(title) }}
+      {{ comp.button(button_text, '/projects')}}
+    </div>
+    <hr>
+  </section>
+
+  <section class="images">
+    {% for image in images %}
+    <img src="/assets/images/{{ image.src }}" alt="{{ image.alt }}">
+    {% endfor %}
+  </section>
+
+  <section class="projects">
+    <h2>Our projects</h2>
+    <div>
+      {% for project in collections.projectDisplay %}
+        {{ comp.projectsDisplay(project.data.title, project.data.project_date, project.data.genre)}}
+      {% endfor %}
+    </div>
+    <div class="projects__btn">
+      {{ comp.button('See all our work', '/projects') }}
+    </div>
+  </section>
+
+  <section>
+    <h2>Read our latest news</h2>
+    <div class="grid">
+      {% for blog in collections.blogDisplay %}
+        {{ comp.grid(blog.data.title, blog.data.description, blog.data.image, blog.data.image_desc, 'blog') }}
+      {% endfor %}
+    </div>
+    <div class="grid__btn">
+      {{ comp.button('Read our blog', '/blog') }}
+    </div>
+  </section>
+{% endblock main %}
